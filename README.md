@@ -1,13 +1,13 @@
 # client3
-
+## 예시페이지는 example/결과페이지.mp4를 참조하시면 됩니다.
 ## Build Setup
 
 ```bash
 # install dependencies
-$ npm install
+$ yarn add
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev
 
 # build for production and launch server
 $ npm run build
