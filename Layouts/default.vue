@@ -14,130 +14,26 @@
               <input type="text" class="route__inpTxt">
             </div>
           </div>
-
+          
           <div class="route__row">
             <div class="route__head">
               <p class="route__rowTit">Start port 1</p>
               <span class="route__spot">INCHON, KOREA, SOUTH</span>
             </div>
             <div class="route__inp">
-              <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();target1=true">
-              <ul class="route__tg" v-show="target1">
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target1=false">busan1</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target1=false">busan2</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target1=false">busan3</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target1=false">busan4</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target1=false">busan5</a>
-                </li>
-              </ul>
+              <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();">
             </div>
           </div>
-
-          <div class="route__row">
-            <div class="route__head">
-              <p class="route__rowTit">waypoint 2</p>
+            <div>
+              <addWayPoint/>
+              <addWayPoint/>
             </div>
-            <div class="route__inp">
-              <div class="route__wp">
-                <div class="route__wpSub">
-                  <span class="route__wpTit">Lon</span>
-                  <input type="text" class="route__wpInp">
-                </div>
-                <div class="route__wpSub">
-                  <span class="route__wpTit">Lat</span>
-                  <input type="text" class="route__wpInp">
-                </div>
-              </div>
-            </div>
-            <div class="route__btnWrap">
-              <button class="route__btn" @click="addPort()">+ Add port</button>
-              <button class="route__btn" @click="addWayPoint()">+ Add waypoint</button>
-            </div>
-            <button class="route__del" @click="routeDel()"></button>
-          </div>
-
-          <div class="route__row">
-            <p class="route__rowTit">Landing port 3</p>
-            <div class="route__inp">
-              <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();target2=true">
-              <ul class="route__tg" v-show="target3">
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target2=false">busan1</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target2=false">busan2</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target2=false">busan3</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target2=false">busan4</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target2=false">busan5</a>
-                </li>
-              </ul>
-            </div>
-            <div class="route__btnWrap">
-              <button class="route__btn" @click="addPort()">+ Add port</button>
-              <button class="route__btn" @click="addWayPoint()">+ Add waypoint</button>
-            </div>
-            <button class="route__del" @click="routeDel()"></button>
-          </div>
-
-          <div class="route__row">
-            <div class="route__head">
-              <p class="route__rowTit">waypoint 4</p>
-            </div>
-            <div class="route__inp">
-              <div class="route__wp">
-                <div class="route__wpSub">
-                  <span class="route__wpTit">Lon</span>
-                  <input type="text" class="route__wpInp">
-                </div>
-                <div class="route__wpSub">
-                  <span class="route__wpTit">Lat</span>
-                  <input type="text" class="route__wpInp">
-                </div>
-              </div>
-            </div>
-            <div class="route__btnWrap">
-              <button class="route__btn" @click="addPort()">+ Add port</button>
-              <button class="route__btn" @click="addWayPoint()">+ Add waypoint</button>
-            </div>
-            <button class="route__del" @click="routeDel()"></button>
-          </div>
-
+          
           <div class="route__row">
             <p class="route__rowTit">End port</p>
             <div class="route__inp">
-              <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();target5=true">
-              <ul class="route__tg" v-show="target5">
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target5=false">busan1</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target5=false">busan2</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target5=false">busan3</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target5=false">busan4</a>
-                </li>
-                <li class="route__tgItem">
-                  <a href="#" class="route__tgBtn" @click="target5=false">busan5</a>
-                </li>
-              </ul>
+              <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();">
+              
             </div>
           </div>
         </div>
@@ -194,6 +90,7 @@
           
           <div class="route__order">
             <button class="route__calcBtn" @click="order()">Order route</button>
+            <button class="route__calcBtn" @click="backc()">Back</button>
           </div>
         </div>
       </div>
@@ -203,23 +100,26 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
 import mapboxgl from "mapbox-gl";
+import addWayPoint from './addwaypoint';
 
-export default defineComponent({
+export default {
+  
     setup() {
         
-    },
+    },components:{
+    addWayPoint
+  },
   data() {
     return {
       access_token:
         "pk.eyJ1IjoiZWpsZWUiLCJhIjoiY2t5OWR0djZqMDVlNTJucWw0ZnRrMTE3ayJ9.zpjrcDwgCiSsGtpRVpNAUg", // your access token. Needed if you using Mapbox maps
       map:{},
-      target1: false,
-      target2: false,
-      target3: false,
-      target4: false,
-      target5: false,
+      // target1: false,
+      // target2: false,
+      // target3: false,
+      // target4: false,
+      // target5: false,
       routeContainer: true,
       result: false
     };
@@ -243,6 +143,11 @@ export default defineComponent({
       this.routeContainer = false,
       this.result = true
     },
+    backc () {
+      console.log('backc')
+      this.routeContainer = true,
+      this.result = false
+    },
     autoComplete() {
       console.log('autoComplete')
     },
@@ -253,7 +158,7 @@ export default defineComponent({
       console.log('order')
     }
   }
-})
+}
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');

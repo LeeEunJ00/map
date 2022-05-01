@@ -6,11 +6,13 @@ import NuxtError from './components/nuxt-error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import '..\\node_modules\\vuetify\\dist\\vuetify.css'
+import '../node_modules/vuetify/dist/vuetify.css'
 
-import _6f6c098b from '..\\layouts\\default.vue'
+import _65edcdec from '../layouts/addwaypoint.vue'
+import _6b4fb138 from '../layouts/backup.vue'
+import _6f6c098b from '../layouts/default.vue'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b) }
+const layouts = { "_addwaypoint": sanitizeComponent(_65edcdec),"_backup": sanitizeComponent(_6b4fb138),"_default": sanitizeComponent(_6f6c098b) }
 
 export default {
   render (h, props) {
