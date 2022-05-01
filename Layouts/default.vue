@@ -24,6 +24,7 @@
               <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();">
             </div>
           </div>
+          <!-- 플러스 버튼 클릭시 way point 추가 -->
             <div>
               <addWayPoint/>
               <addWayPoint/>

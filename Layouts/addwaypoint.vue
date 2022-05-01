@@ -63,6 +63,7 @@ img {max-width: 100%;}
 .route__wpInp {width: 100%; height: 40px; margin-top: 10px; padding: 0 20px; background: #ebebeb; border: 1px solid #238ebe; outline: none;}
 .route__del {position: absolute; top: 0; right: 0; width: 30px; height: 30px; background: #022e84; border-radius: 5px;}
 .route__del::before {content: ''; position: absolute; top: 13px; left: 5px; width: 20px; height: 4px; background: #fff;}
+/* add 버튼 생성 부탁드립니다. */
 .route__add {position: absolute; top: 0; right: 55px; width: 30px; height: 30px; background: #022e84; border-radius: 5px;}
 .route__add::before {content: ''; position: absolute; top: 13px; left: 5px; width: 20px; height: 4px; background: #fff;}
 .map{width: calc(100% - 500px); height: 100%; overflow: hidden;}
