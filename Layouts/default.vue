@@ -23,11 +23,17 @@
             <div class="route__inp">
               <input type="text" class="route__inpTxt" placeholder="Search port..." @keydown="autoComplete();">
             </div>
+            <div>
+
+            <button class="route__add" @click="addWayPointStart()"></button>
+            </div>
+              
           </div>
           <!-- 플러스 버튼 클릭시 way point 추가 -->
             <div>
-              <addWayPoint/>
-              <addWayPoint/>
+              <li v-for="(p,idx) in waypoints" :key="idx"> 
+                <addWayPoint @addWayPointchild = "addWayPoint(idx)" @delWayPointchild = "delWayPoint(idx)"/> 
+              </li>
             </div>
           
           <div class="route__row">
@@ -116,11 +122,8 @@ export default {
       access_token:
         "pk.eyJ1IjoiZWpsZWUiLCJhIjoiY2t5OWR0djZqMDVlNTJucWw0ZnRrMTE3ayJ9.zpjrcDwgCiSsGtpRVpNAUg", // your access token. Needed if you using Mapbox maps
       map:{},
-      // target1: false,
-      // target2: false,
-      // target3: false,
-      // target4: false,
-      // target5: false,
+      waypoints:[
+    ],
       routeContainer: true,
       result: false
     };
@@ -134,10 +137,28 @@ export default {
       this.map= new mapboxgl.Map({container:'map',style:"mapbox://styles/ejlee/cky9lllex3zgk14lo85t9yj7v",zoom:11,center:[100.0,-6.5]})
     },
     addPort () {
-      console.log('addPort')
+      console.log('addPort');
+      
     },
-    addWayPoint () {
-      console.log('addWayPoint')
+    addWayPointStart () {
+      console.log('addWayPoint start')
+      //waypoint추가
+      this.waypoints.splice(0, 0, {lon:0,lat:0.0});
+      console.log(this.waypoints);
+    },
+    addWayPoint (idx) {
+      console.log('addWayPoint out')
+      //waypoint 추가
+      this.waypoints.splice(idx+1, 0, {lon:idx+1,lat:0.0});
+      console.log(this.waypoints);
+      console.log(idx+1);
+    },
+    delWayPoint (idx) {
+      console.log('delWayPoint out')
+      //waypoint 추가
+      this.waypoints.splice(idx+1, 1);
+      console.log(this.waypoints);
+      console.log(idx+1);
     },
     calc () {
       console.log('calc')
@@ -151,9 +172,6 @@ export default {
     },
     autoComplete() {
       console.log('autoComplete')
-    },
-    routeDel() {
-      console.log('routeDel')
     },
     order() {
       console.log('order')
@@ -190,6 +208,9 @@ img {max-width: 100%;}
 .route__wpInp {width: 100%; height: 40px; margin-top: 10px; padding: 0 20px; background: #ebebeb; border: 1px solid #238ebe; outline: none;}
 .route__del {position: absolute; top: 0; right: 0; width: 30px; height: 30px; background: #022e84; border-radius: 5px;}
 .route__del::before {content: ''; position: absolute; top: 13px; left: 5px; width: 20px; height: 4px; background: #fff;}
+/* add 버튼 생성 부탁드립니다. */
+.route__add {position: absolute; top: 0; right: 55px; width: 30px; height: 30px; background: #022e84; border-radius: 5px;}
+.route__add::before {content: ''; position: absolute; top: 13px; left: 5px; width: 20px; height: 4px; background: #fff;}
 .map{width: calc(100% - 500px); height: 100%; overflow: hidden;}
 
 .routeResult {padding-right: 15px;}

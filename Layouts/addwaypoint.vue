@@ -1,36 +1,49 @@
 <template>
-    <div class="route__row">
+    <div>   
+        <div class="route__row">
             <div class="route__head">
-              <p class="route__rowTit">waypoint 4</p>
+              <p class="route__rowTit">waypoint</p>
             </div>
             <div class="route__inp">
               <div class="route__wp">
                 <div class="route__wpSub">
                   <span class="route__wpTit">Lon</span>
-                  <input type="text" class="route__wpInp">
+                  <input type="text" class="route__wpInp"/>
                 </div>
                 <div class="route__wpSub">
                   <span class="route__wpTit">Lat</span>
-                  <input type="text" class="route__wpInp">
+                  <input type="text" class="route__wpInp" />
                 </div>
               </div>
             </div>
             <div class="route__btnWrap">
-              <!-- <button class="route__btn" @click="addPort()">+ Add port</button> -->
-              <!-- <button class="route__btn" @click="addWayPoint()">+ Add waypoint</button> -->
             </div>
             <button class="route__del" @click="routeDel()"></button>
             <button class="route__add" @click="addWayPoint()"></button>
           </div>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'addWayPoint',
+//     props: {
+//     point: Object,
+//   },
   data(){
     return{
     };
   },
+  methods:{
+      routeDel() {
+      console.log('routeDel in');
+      this.$emit('delWayPointchild');
+    },
+    addWayPoint () {
+      console.log('addWayPoint in');
+      this.$emit('addWayPointchild');
+    },
+  }
 }
 </script>
 

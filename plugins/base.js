@@ -6,3 +6,4 @@ import BaseSubheading from '@/components/base/Subheading'
 Vue.component(BaseBtn.name, BaseBtn)
 Vue.component(BaseCard.name, BaseCard)
 Vue.component(BaseSubheading.name, BaseSubheading)
+
