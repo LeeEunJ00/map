@@ -25,7 +25,7 @@
             </div>
             <div>
 
-            <button class="route__del" @click="delWayPoint()"></button>
+            <!-- <button class="route__del" @click="delWayPoint()"></button> -->
             <button class="route__add" @click="addWayPointStart()"></button>
             </div>
               
@@ -151,15 +151,11 @@ export default {
       console.log('addWayPoint out')
       //waypoint 추가
       this.waypoints.splice(idx+1, 0, {lon:idx+1,lat:0.0});
-      console.log(this.waypoints);
-      console.log(idx+1);
     },
     delWayPoint (idx) {
       console.log('delWayPoint out')
-      //waypoint 추가
-      this.waypoints.splice(idx+1, 1);
-      console.log(this.waypoints);
-      console.log(idx+1);
+      //waypoint 삭제
+      this.waypoints.splice(idx, 1);
     },
     calc () {
       console.log('calc')
